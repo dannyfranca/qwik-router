@@ -56,7 +56,6 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/qwik": "1.2.6",
     "@types/eslint": "8.44.0",
     "@types/node": "20.4.1",
     "@typescript-eslint/eslint-plugin": "5.61.0",
@@ -66,11 +65,15 @@
     "eslint-plugin-qwik": "latest",
     "happy-dom": "10.0.3",
     "np": "7.6.1",
+    "path-to-regexp": "6.2.1",
     "prettier": "2.8.8",
     "typescript": "5.1.6",
     "undici": "5.22.1",
     "vite": "4.4.2",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.33.0"
+  },
+  "peerDependencies": {
+    "@builder.io/qwik": ">=1.0.0"
   }
 }

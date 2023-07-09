@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A SPA-like router for Qwik.",
   "license": "MIT",
+  "private": false,
   "author": {
     "name": "Danny França",
     "email": "me@dannyfranca.com"
@@ -16,6 +17,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "keywords": [
+    "qwik",
+    "router",
+    "spa",
+    "single-page-application"
+  ],
+  "type": "module",
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
   "types": "./lib-types/index.d.ts",
@@ -26,12 +34,6 @@
       "types": "./lib-types/index.d.ts"
     }
   },
-  "keywords": [
-    "qwik",
-    "router",
-    "spa",
-    "single-page-application"
-  ],
   "files": [
     "lib",
     "lib-types"
@@ -39,8 +41,6 @@
   "engines": {
     "node": ">=15.0.0"
   },
-  "private": false,
-  "type": "module",
   "scripts": {
     "build": "qwik build",
     "build.lib": "vite build --mode lib",

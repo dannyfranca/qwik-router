@@ -74,6 +74,6 @@
     "vitest": "0.33.0"
   },
   "peerDependencies": {
-    "@builder.io/qwik": ">=1.0.0"
+    "@builder.io/qwik": ">=0.24.0"
   }
 }

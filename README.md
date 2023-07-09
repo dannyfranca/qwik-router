@@ -16,6 +16,10 @@ Thinking of that, I created this router to be used with Qwik, based on similar p
 
 This follows Qwik principles and is targeed for flexibility. If you don't have very unique routing needs, you should use Qwik City.
 
+This component has been used in production in a few projects, but it's still in beta.
+
+In the next few weeks, I'll be adding more documentation and examples.
+
 ## Features
 
 🚧 WIP 🚧

@@ -28,6 +28,14 @@ pnpm i
 pnpm run dev
 ```
 
+## Installing
+  
+```bash
+pnpm i qwik-router
+yarn add qwik-router
+npm i qwik-router
+```
+
 ## Initiating the router
 
 To initiate the router, import the `initRouter` and execute in the Root component giving a string URL as input.
@@ -35,7 +43,7 @@ To initiate the router, import the `initRouter` and execute in the Root componen
 This will create a [Qwik context](https://qwik.builder.io/docs/components/context/) that will be changed every time the app navigates using the [`navigateTo`](./src/navigate-to.ts), the [`Link`](#the-link-component) component or the `window` object `popstate` event.
 
 ```typescript
-import { initRouter } from '@aferry/qwik-router';
+import { initRouter } from 'qwik-router';
 
 const Root = component$((props: { url: string }) => {
   initRouter(props.url);
@@ -53,7 +61,7 @@ Import the `useRoute` and set up a [lifecycle task](https://qwik.builder.io/docs
 ```typescript
 import { useVisibleTask$, useTask$ } from '@builder.io/qwik';
 import { isServer } from '@builder.io/qwik/build';
-import { useRoute } from '@aferry/qwik-router';
+import { useRoute } from 'qwik-router';
 
 const App = component$(() => {
   const routeState = useRoute();
@@ -87,7 +95,7 @@ This hook creates a navigation function.
 
 ```typescript
 import { $, useOnWindow } from '@builder.io/qwik';
-import { useNavigate } from '@aferry/qwik-router';
+import { useNavigate } from 'qwik-router';
 
 const App = component$(() => {
   const nav = useNavigate();
@@ -106,7 +114,7 @@ You can add an optional `activeClassName` prop to config the class that will be 
 
 ```typescript
 import { $, useOnWindow } from '@builder.io/qwik';
-import { Link } from '@aferry/qwik-router';
+import { Link } from 'qwik-router';
 
 const NewPathNav = component$(() => {
   return <Link activeClassName="active" href="/new-path">Go to New Path</Link>;
@@ -123,7 +131,7 @@ It is important to attribute the Component function to the component prop, not t
 
 ```typescript
 // routes.ts
-import { RouterConfig } from '@aferry/qwik-router';
+import { RouterConfig } from 'qwik-router';
 import { RouteComponent1 } from './components/RouteComponent1';
 import { RouteComponent2 } from './components/RouteComponent2';
 import { RouteComponent3 } from './components/RouteComponent3';
@@ -149,7 +157,7 @@ The Router component has an optional `defaultComponent` property to be used when
 ```typescript
 // App.tsx
 import { $, useOnWindow } from '@builder.io/qwik';
-import { initRouter, Router } from '@aferry/qwik-router';
+import { initRouter, Router } from 'qwik-router';
 import { routes } from './routes.ts';
 import { DefaultRouteComponent } from './components/DefaultRoute';
 

@@ -1,0 +1,11 @@
+.vscode
+src
+test
+.eslintignore
+.eslintrc.cjs
+.prettierignore
+.prettierrc
+bitbucket-pipelines.yml
+tsconfig.json
+tsconfig.*.json
+vite.config.ts

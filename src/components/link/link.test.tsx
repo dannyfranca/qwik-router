@@ -20,11 +20,7 @@ vi.spyOn(qwikBuild, "isBrowser", "get").mockImplementation(isBrowserMock);
 
 const StubChild = component$(() => {
   const routeState = useRoute();
-  return (
-    <>
-      <div class="stub-path">{routeState.pathname}</div>
-    </>
-  );
+  return <div class="stub-path">{routeState.pathname}</div>;
 });
 
 const StubRoot = component$(({ url }: { url: string }) => {

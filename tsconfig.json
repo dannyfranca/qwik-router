@@ -15,11 +15,12 @@
     "skipLibCheck": true,
     "incremental": true,
     "isolatedModules": true,
+    "importHelpers": true,
     "types": ["vitest/globals", "vite/client"],
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./src/*"]
     }
   },
-  "include": ["vite.config.ts", "src"]
+  "include": ["src"]
 }

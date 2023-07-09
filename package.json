@@ -2,6 +2,20 @@
   "name": "qwik-router",
   "version": "0.0.1",
   "description": "A SPA-like router for Qwik.",
+  "license": "MIT",
+  "author": {
+    "name": "Danny França",
+    "email": "me@dannyfranca.com"
+  },
+  "contributors": [
+    {
+      "name": "Danny França <me@dannyfranca.com>"
+    }
+  ],
+  "repository": "https://github.com/dannyfranca/qwik-router",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./lib/index.qwik.mjs",
   "qwik": "./lib/index.qwik.mjs",
   "types": "./lib-types/index.d.ts",

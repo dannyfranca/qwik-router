@@ -1,2 +1,4 @@
-export { Logo } from "./components/logo/logo";
-export { Counter } from "./components/counter/counter";
+export * from "./components/link/link";
+export * from "./components/router/router";
+export * from "./routing";
+export * from "./types";

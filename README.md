@@ -4,21 +4,29 @@ A SPA-like router for Qwik.
 
 ## Why?
 
-Many Qwik native solutions, like routing, are very attached to Qwik City, which is great for most use cases. But sometimes, a file-based routing is not enough.
+Many Qwik native solutions, like routing, are very attached to Qwik City, which is great for most use cases. But sometimes, more than a file-based routing is needed.
 
 Possible use cases are:
 
-- Micro-frontends with Qwik, where you need to load different apps in the same page
+- Micro-frontends with Qwik, where you need to load different apps on the same page
 - When you need a component-based routing with customized rules.
-- When you meed multiple routers in the same page.
+- When you need multiple routers on the same page.
 
-Thinking of that, I created this router to be used with Qwik, based on similar projects like vue-router and react-router.
+Thinking of that, I created this router to be used with Qwik based on similar projects like vue-router and react-router.
 
-This follows Qwik principles and is targeed for flexibility. If you don't have very unique routing needs, you should use Qwik City.
+This follows Qwik principles and is targeted for flexibility. If you don't have unique routing needs, you should use Qwik City.
 
-This component has been used in production in a few projects, but it's still in beta.
+This component has been used in production in a few projects but is still in beta.
 
-In the next few weeks, I'll be adding more documentation and examples.
+I'll add more documentation and examples in the next few days.
+
+## See a Working Example
+
+```bash
+git clone https://github.com/dannyfranca/qwik-router.git
+pnpm i
+pnpm run dev
+```
 
 ## Features
 

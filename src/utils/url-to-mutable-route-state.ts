@@ -6,7 +6,7 @@ import type { MutableRouteState } from "../types";
  * @returns A new mutable routing state
  */
 export const urlToMutableRouteState = (url: URL): MutableRouteState => ({
-  url: url.toString(),
+  href: url.toString(),
   pathname: url.pathname,
   hash: url.hash,
   search: url.search,

@@ -5,7 +5,7 @@ describe(urlToMutableRouteState.name, () => {
     const url = new URL("https://test.com/test?test=1#hash");
     const state = urlToMutableRouteState(url);
     expect(state).toStrictEqual({
-      url: "https://test.com/test?test=1#hash",
+      href: "https://test.com/test?test=1#hash",
       pathname: "/test",
       search: "?test=1",
       hash: "#hash",

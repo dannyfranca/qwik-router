@@ -10,7 +10,7 @@ describe(generateNewUrlStateFromPath.name, () => {
       "/new-path?test=2"
     );
     expect(newState).toStrictEqual({
-      url: "https://test.com/new-path?test=2",
+      href: "https://test.com/new-path?test=2",
       pathname: "/new-path",
       search: "?test=2",
       hash: "",

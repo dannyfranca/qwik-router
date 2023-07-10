@@ -35,10 +35,10 @@ export interface ImmutableRouteState {
  */
 export interface MutableRouteState {
   /**
-   * The full URL of the route state.
+   * A stringifier that returns a string containing the whole URL.
    * @example `https://example.com:8080/en-gb/path/to/page?query=string#hash`
    */
-  url: string;
+  href: string;
   /**
    * The path of the URL.
    * @example `/en-gb/path/to/page`

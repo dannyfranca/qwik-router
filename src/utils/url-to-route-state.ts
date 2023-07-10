@@ -1,5 +1,5 @@
-import type { RouteState } from '../types';
-import { urlToMutableRouteState } from './url-to-mutable-route-state';
+import type { RouteState } from "../types";
+import { urlToMutableRouteState } from "./url-to-mutable-route-state";
 
 /**
  * Convert a URL object to a routing state. This is useful to generate the initial routing state.

@@ -12,7 +12,7 @@ describe(updateRouteState.name, () => {
     );
     updateRouteState(state, newState);
     expect(state).toStrictEqual({
-      url: "https://test.com/new-path?test=2#new-hash",
+      href: "https://test.com/new-path?test=2#new-hash",
       pathname: "/new-path",
       search: "?test=2",
       hash: "#new-hash",

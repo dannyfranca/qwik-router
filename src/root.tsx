@@ -29,7 +29,7 @@ const Route2 = component$(() => {
       I am Route 2<br />
       Lang: {params.lang}
       <br />
-      Hostname: {route.url}
+      Hostname: {route.href}
     </div>
   );
 });

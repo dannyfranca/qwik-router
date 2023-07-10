@@ -1,6 +1,22 @@
-# qwik-router
+<h1 align="center">qwik-router</h1>
+<p align="center">A SPA-like router for Qwik.</p>
+<p align="center">
 
-A SPA-like router for Qwik.
+<p align="center">
+
+<a href="https://npmjs.com/package/qwik-router" target="_blank">
+    <img src="https://img.shields.io/npm/dt/qwik-router.svg?style=flat-square&logo=npm" />
+</a>
+
+<a href="https://npmjs.com/package/qwik-router" target="_blank">
+    <img src="https://img.shields.io/npm/v/qwik-router/latest.svg?style=flat-square&logo=npm" />
+</a>
+
+<a href="https://www.codacy.com/manual/qwik-router" target="_blank">
+    <img src="https://img.shields.io/codacy/grade/addca1007fb044c3a994c7e0ec504092?style=flat-square&logo=codacy" />
+</a>
+
+</p>
 
 ## Why?
 
@@ -8,9 +24,9 @@ Many Qwik native solutions, like routing, are very attached to Qwik City, which 
 
 Possible use cases are:
 
-- Micro-frontends with Qwik, where you need to load different apps on the same page
-- When you need a component-based routing with customized rules.
-- When you need multiple routers on the same page.
+  - Micro-frontends with Qwik, where you need to load different apps on the same page
+  - When you need a component-based routing with customized rules.
+  - When you need multiple routers on the same page.
 
 Thinking of that, I created this router to be used with Qwik based on similar projects like vue-router and react-router.
 
@@ -43,9 +59,11 @@ To initiate the router, import the `initRouter` and execute in the Root componen
 This will create a [Qwik context](https://qwik.builder.io/docs/components/context/) that will be changed every time the app navigates using the [`navigateTo`](./src/navigate-to.ts), the [`Link`](#the-link-component) component or the `window` object `popstate` event.
 
 ```typescript
-import { initRouter } from 'qwik-router';
+// root.tsx
+import { component$ } from "@builder.io/qwik";
+import { initRouter } from "qwik-router";
 
-const Root = component$((props: { url: string }) => {
+export default component$((props: { url: string }) => {
   initRouter(props.url);
 
   return <Child />;
@@ -56,22 +74,40 @@ const Root = component$((props: { url: string }) => {
 
 The route state is a reactive [Qwik store](https://qwik.builder.io/docs/components/state/#usestore) with the interface [`RouteState`](./src/types.ts#RouteState) shared with a [Qwik context](https://qwik.builder.io/docs/components/context/).
 
-Import the `useRoute` and set up a [lifecycle task](https://qwik.builder.io/docs/components/lifecycle/).
+Import the `useRoute` and/or `useParams` and set up a [lifecycle task](https://qwik.builder.io/docs/components/lifecycle/).
+
+### ⚠️ Warning
+
+The `useParams` hooks only works under a [`Router`](#component-routing) component.
 
 ```typescript
-import { useVisibleTask$, useTask$ } from '@builder.io/qwik';
-import { isServer } from '@builder.io/qwik/build';
-import { useRoute } from 'qwik-router';
+import { useVisibleTask$, useTask$, component$ } from "@builder.io/qwik";
+import { isServer } from "@builder.io/qwik/build";
+import { useRoute, useParams } from "qwik-router";
 
-const App = component$(() => {
+export default component$(() => {
   const routeState = useRoute();
+  const paramsState = useParams(); // only works under a Router component
 
-  useVisibleTask$(({ track }) => {
-    track(() => routeState.pathname);
-    track(() => routeState.search);
-    // react to pathname and search changes only when component becomes visible on the browser.
-  }, {
-    strategy: 'intersection-observer'
+  useVisibleTask$(
+    ({ track }) => {
+      track(() => routeState.pathname);
+      track(() => routeState.search);
+      // react to pathname and search changes only when component becomes visible on the browser.
+    },
+    {
+      strategy: "intersection-observer",
+    }
+  );
+
+  useTask$(({ track }) => {
+    track(() => paramsState);
+    // react to any changes on the path parameters
+  });
+
+  useTask$(({ track }) => {
+    track(() => paramsState.id);
+    // react to any changes on the :id path parameters
   });
 
   useTask$(({ track }) => {
@@ -85,6 +121,32 @@ const App = component$(() => {
 
   return <Child />;
 });
+
+```
+
+The `initRouter` also returns a router reactive state, just like `useRouter`.
+
+Notive the route state is very close to the native [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL). Full compatibility soon.
+
+```typescript
+// root.tsx
+import { component$ } from "@builder.io/qwik";
+import { initRouter } from "qwik-router";
+
+export default component$((props: { url: string }) => {
+  const router = initRouter(props.url);
+  router.hash; // #hash
+  router.pathname; // /path
+  router.search; // ?query=string
+  router.query; // { query: 'string' }
+  router.host; // host:port
+  router.origin; // http://host:port
+  router.protocol; // http:
+  router.port; // port
+  router.href; // http://host:port/path?query=string#hash
+
+  return <Child />;
+});
 ```
 
 ## Navigating
@@ -94,7 +156,7 @@ const App = component$(() => {
 This hook creates a navigation function.
 
 ```typescript
-import { $, useOnWindow } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 import { useNavigate } from 'qwik-router';
 
 const App = component$(() => {
@@ -113,7 +175,7 @@ Use the Link component like an anchor tag. It uses the `useNavigate` hook under 
 You can add an optional `activeClassName` prop to config the class that will be added when the link matches the active path.
 
 ```typescript
-import { $, useOnWindow } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 import { Link } from 'qwik-router';
 
 const NewPathNav = component$(() => {
@@ -156,7 +218,7 @@ The Router component has an optional `defaultComponent` property to be used when
 
 ```typescript
 // App.tsx
-import { $, useOnWindow } from '@builder.io/qwik';
+import { component$ } from "@builder.io/qwik";
 import { initRouter, Router } from 'qwik-router';
 import { routes } from './routes.ts';
 import { DefaultRouteComponent } from './components/DefaultRoute';
@@ -166,6 +228,77 @@ const App = component$((props: { url: string }) => {
 
   return <Router routes={routes} defaultComponent={DefaultRouteComponent} />;
 });
+```
+
+### Multiple Routers and URL Parameters
+
+The router supports URL parameters. You can access them in the component with the `useParams` hook.
+
+The reason not to use the `useRoute` hook is because you can use multiple Route components, leading to different param states.
+
+The `Router` initializes the param state as a [Context](https://qwik.builder.io/docs/components/context/), so it can be accessed by any component under it using the `useParams` hook.
+
+```typescript
+// root.tsx
+import { component$ } from "@builder.io/qwik";
+import {
+  type RouterConfig,
+  initRouter,
+  useParams,
+  useRoute,
+  Router,
+} from "qwik-router";
+
+const DynamicRoute = component$(() => {
+  const route = useRoute();
+  const params = useParams(); // { language: 'en', page: 'home' }
+  return <div>I am DynamicRoute</div>;
+});
+
+const Route1 = component$(() => {
+  const route = useRoute();
+  const params = useParams(); // { lang: 'en' }
+  return <div>I am Route 1</div>;
+});
+
+const Route2 = component$(() => {
+  const route = useRoute();
+  const params = useParams(); // { lang: 'en' }
+  return <div>I am Route 2</div>;
+});
+
+const routeConf1: RouterConfig = [
+  {
+    path: "/:language/:page",
+    // /en/home -> useParams() will return { language: 'en', page: 'home' }
+    component: DynamicRoute,
+  },
+];
+
+const routeConf2: RouterConfig = [
+  {
+    path: "/:lang/route-1",
+    // /en/route-1 -> useParams() will return { lang: 'en' }
+    component: Route1,
+  },
+  {
+    path: "/:lang/route-2",
+    // /en/route-2 -> useParams() will return { lang: 'en' }
+    component: Route2,
+  },
+];
+
+export default component$((props: { url: string }) => {
+  initRouter(props.url);
+
+  return (
+    <>
+      <Router routes={routeConf1} />
+      <Router routes={routeConf2} />
+    </>
+  );
+});
+
 ```
 
 ## How It Works

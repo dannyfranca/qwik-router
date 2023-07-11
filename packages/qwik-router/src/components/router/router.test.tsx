@@ -10,8 +10,13 @@ import * as qwikBuild from "@builder.io/qwik/build";
 import { createDOM } from "@builder.io/qwik/testing";
 import { component$ } from "@builder.io/qwik";
 
-import type { RouterConfig } from "@/types";
-import { Link, Router, initRouter, useParams } from "@/index";
+import type { RouterConfig } from "packages/qwik-router/src/types";
+import {
+  Link,
+  Router,
+  initRouter,
+  useParams,
+} from "packages/qwik-router/src/index";
 
 const isBrowserMock = vi.fn(() => true);
 vi.spyOn(qwikBuild, "isBrowser", "get").mockImplementation(isBrowserMock);

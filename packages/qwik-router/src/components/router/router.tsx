@@ -1,9 +1,9 @@
-import { component$, useContextProvider, useStore } from '@builder.io/qwik';
+import { component$, useContextProvider, useStore } from "@builder.io/qwik";
 
-import { useRoute } from '@/routing';
-import type { RouteParams, RouterProps } from '@/types';
-import { RouteParamsContext } from '@/contexts';
-import { getMatchingConfig } from './get-matching-config';
+import { useRoute } from "packages/qwik-router/src/routing";
+import type { RouteParams, RouterProps } from "packages/qwik-router/src/types";
+import { RouteParamsContext } from "packages/qwik-router/src/contexts";
+import { getMatchingConfig } from "./get-matching-config";
 
 /**
  * Router component that renders a component based on the current path.

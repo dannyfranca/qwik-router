@@ -1,7 +1,7 @@
-import { component$, Slot } from '@builder.io/qwik';
+import { component$, Slot } from "@builder.io/qwik";
 
-import type { LinkProps } from '@/types';
-import { useNavigate, useRoute } from '@/routing';
+import type { LinkProps } from "packages/qwik-router/src/types";
+import { useNavigate, useRoute } from "packages/qwik-router/src/routing";
 
 /**
  * Link component that navigates to a new route.
@@ -18,9 +18,9 @@ export const Link = component$((opts: LinkProps) => {
       {...props}
       preventdefault:click
       class={
-        (isActive ? activeClassName ?? 'link--active' : '') +
-        ' ' +
-        (classProp ?? '')
+        (isActive ? activeClassName ?? "link--active" : "") +
+        " " +
+        (classProp ?? "")
       }
       href={href}
       onClick$={() => navigate(href)}

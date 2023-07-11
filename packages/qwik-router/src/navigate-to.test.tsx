@@ -1,5 +1,5 @@
-import { navigateTo } from "@/navigate-to";
-import { urlToRouteState } from "@/utils/url-to-route-state";
+import { navigateTo } from "packages/qwik-router/src/navigate-to";
+import { urlToRouteState } from "packages/qwik-router/src/utils/url-to-route-state";
 
 describe(navigateTo.name, () => {
   const url = new URL("https://test.com/path?test=1#hash");

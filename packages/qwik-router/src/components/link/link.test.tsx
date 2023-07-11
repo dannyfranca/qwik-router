@@ -10,8 +10,8 @@ import * as qwikBuild from "@builder.io/qwik/build";
 import { createDOM } from "@builder.io/qwik/testing";
 import { component$ } from "@builder.io/qwik";
 
-import { initRouter, useRoute } from "@/routing";
-import { Link } from "@/components/link/link";
+import { initRouter, useRoute } from "packages/qwik-router/src/routing";
+import { Link } from "packages/qwik-router/src/components/link/link";
 
 const url = new URL("https://test.com/path?test=1#hash");
 

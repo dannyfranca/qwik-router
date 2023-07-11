@@ -2,7 +2,11 @@
 import { createDOM } from "@builder.io/qwik/testing";
 import { component$ } from "@builder.io/qwik";
 
-import { initRouter, useNavigate, useRoute } from "@/routing";
+import {
+  initRouter,
+  useNavigate,
+  useRoute,
+} from "packages/qwik-router/src/routing";
 
 const StubNav = component$(() => {
   const nav = useNavigate();

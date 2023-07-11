@@ -33,3 +33,6 @@ runs:
 
     - name: Derive appropriate SHAs for base and head for `nx affected` commands
       uses: nrwl/nx-set-shas@v3.0.1
+      id: setSHAs
+      with:
+        main-branch-name: 'main'

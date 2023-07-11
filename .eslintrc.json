@@ -1,0 +1,59 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nx", "prettier", "@typescript-eslint", "unused-imports"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "plugins": ["import"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ],
+        "max-len": [2, { "code": 120 }],
+        "prettier/prettier": [
+          "error",
+          {
+            "endOfLine": "auto"
+          }
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "import/no-duplicates": ["error", { "prefer-inline": true }]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {
+        "no-empty": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/consistent-type-imports": [
+          "error",
+          { "prefer": "type-imports", "fixStyle": "inline-type-imports" }
+        ]
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "rules": {}
+    }
+  ]
+}

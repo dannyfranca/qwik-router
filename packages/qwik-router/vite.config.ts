@@ -1,24 +1,44 @@
 import { defineConfig } from "vite";
+import viteTsConfigPaths from "vite-tsconfig-paths";
+import dts from "vite-plugin-dts";
+import devkit from "@nx/devkit";
 import { qwikVite } from "@builder.io/qwik/optimizer";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { qwikNxVite } from "qwik-nx/plugins";
 
 export default defineConfig(() => {
   return {
     build: {
-      target: "es2020",
       lib: {
+        name: "qwik-router",
         entry: "./src/index.ts",
         formats: ["es", "cjs"],
-        fileName: (format) => `index.qwik.${format === "es" ? "mjs" : "cjs"}`,
+        fileName: "index",
       },
       rollupOptions: {
         external: ["@builder.io/qwik"],
       },
     },
-    plugins: [qwikVite(), tsconfigPaths()],
+    plugins: [
+      qwikNxVite(),
+      qwikVite(),
+      dts({
+        entryRoot: "src",
+        tsConfigFilePath: devkit.joinPathFragments(
+          __dirname,
+          "tsconfig.lib.json"
+        ),
+        skipDiagnostics: true,
+      }),
+      viteTsConfigPaths({
+        root: "../../",
+      }),
+    ],
     test: {
-      environment: "happy-dom",
       globals: true,
+      cache: {
+        dir: "../../node_modules/.vitest",
+      },
+      environment: "happy-dom",
       watch: false,
       include: ["**/*.test.{ts,tsx}"],
       clearMocks: true,
@@ -29,7 +49,9 @@ export default defineConfig(() => {
         include: ["src/**/**"],
         exclude: ["src/root.tsx", "src/entry.dev.tsx", "src/entry.ssr.tsx"],
         extension: [".js", ".ts", ".tsx"],
-        reporter: ["text"],
+        coverage: {
+          reportsDirectory: "../../coverage/libs/qwik-router",
+        },
       },
     },
   };

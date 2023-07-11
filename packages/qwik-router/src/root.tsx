@@ -14,7 +14,7 @@ const Route1 = component$(() => {
   return (
     <div>
       I am Route 1<br />
-      Lang: {params.lang}
+      Lang: {params["lang"]}
       <br />
       Pathname: {route.pathname}
     </div>
@@ -27,7 +27,7 @@ const Route2 = component$(() => {
   return (
     <div>
       I am Route 2<br />
-      Lang: {params.lang}
+      Lang: {params["lang"]}
       <br />
       Hostname: {route.href}
     </div>

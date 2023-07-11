@@ -23,12 +23,12 @@ vi.spyOn(qwikBuild, "isBrowser", "get").mockImplementation(isBrowserMock);
 
 const Route1 = component$(() => {
   const params = useParams();
-  return <div class="route-1">{params.lang}</div>;
+  return <div class="route-1">{params["lang"]}</div>;
 });
 
 const Route2 = component$(() => {
   const params = useParams();
-  return <div class="route-2">{params.lang}</div>;
+  return <div class="route-2">{params["lang"]}</div>;
 });
 
 const DefaultRoute = component$(() => {

@@ -45,15 +45,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpx nx run ${{ inputs.package }}:version --releaseAs=${{ inputs.type }} --push=true --baseBranch=${{ github.ref_name }}
-      
-      - name: Commit files
-        run: |
-          git commit -a -m "chore(${{ inputs.package }}): bump version"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          force: true
-          tags: true

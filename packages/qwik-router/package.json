@@ -35,20 +35,6 @@
   "engines": {
     "node": ">=15.0.0"
   },
-  "scripts": {
-    "build": "qwik build",
-    "build.lib": "vite build --mode lib",
-    "build.types": "tsc --emitDeclarationOnly",
-    "dev": "vite --mode ssr",
-    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
-    "test": "vitest",
-    "fmt": "prettier --write .",
-    "fmt.check": "prettier --check .",
-    "lint": "eslint \"src/**/*.ts*\"",
-    "release": "np",
-    "start": "vite --open --mode ssr",
-    "qwik": "qwik"
-  },
   "devDependencies": {
     "path-to-regexp": "6.2.1"
   },

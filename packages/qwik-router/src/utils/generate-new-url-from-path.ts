@@ -7,10 +7,7 @@ import { urlToMutableRouteState } from './url-to-mutable-route-state';
  * @param path The path to generate the new route state from
  * @returns A new mutable route state
  */
-export const generateNewUrlStateFromPath = (
-  routeState: RouteState,
-  path: string
-): MutableRouteState => {
+export const generateNewUrlStateFromPath = (routeState: RouteState, path: string): MutableRouteState => {
   const url = new URL(path, routeState.origin);
   return urlToMutableRouteState(url);
 };

@@ -1,4 +1,4 @@
-import { isBrowser } from "@builder.io/qwik/build";
+import { isBrowser } from '@builder.io/qwik/build';
 
 /**
  * Returns the window object if in a browser.

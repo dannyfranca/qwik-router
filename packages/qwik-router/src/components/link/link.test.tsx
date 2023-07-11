@@ -1,22 +1,22 @@
 // @vitest-environment node
 console.debug = () => {}; // Qwik does not have away to turn off debug logging, so we mock it out.
-import { Window } from "happy-dom";
+import { Window } from 'happy-dom';
 (global as any).window = new Window({
   innerWidth: 1024,
   innerHeight: 768,
-  url: "http://localhost:8080",
+  url: 'http://localhost:8080',
 });
-import * as qwikBuild from "@builder.io/qwik/build";
-import { createDOM } from "@builder.io/qwik/testing";
-import { component$ } from "@builder.io/qwik";
+import * as qwikBuild from '@builder.io/qwik/build';
+import { createDOM } from '@builder.io/qwik/testing';
+import { component$ } from '@builder.io/qwik';
 
-import { initRouter, useRoute } from "packages/qwik-router/src/routing";
-import { Link } from "packages/qwik-router/src/components/link/link";
+import { initRouter, useRoute } from '../../routing';
+import { Link } from './link';
 
-const url = new URL("https://test.com/path?test=1#hash");
+const url = new URL('https://test.com/path?test=1#hash');
 
 const isBrowserMock = vi.fn(() => true);
-vi.spyOn(qwikBuild, "isBrowser", "get").mockImplementation(isBrowserMock);
+vi.spyOn(qwikBuild, 'isBrowser', 'get').mockImplementation(isBrowserMock);
 
 const StubChild = component$(() => {
   const routeState = useRoute();
@@ -37,19 +37,19 @@ const StubRoot = component$(({ url }: { url: string }) => {
 });
 
 describe(Link.name, () => {
-  it("Changes rendering after navigation", async () => {
+  it('Changes rendering after navigation', async () => {
     const { screen, render } = await createDOM();
 
     await render(<StubRoot url={url.toString()} />);
 
-    const pathEl = screen.querySelector(".stub-path");
+    const pathEl = screen.querySelector('.stub-path');
 
-    expect(pathEl!.textContent).toBe("/path");
+    expect(pathEl!.textContent).toBe('/path');
   });
 
-  it("Has active--link class", async () => {
+  it('Has active--link class', async () => {
     const ActiveLink = component$(() => {
-      initRouter("https://test.com/new-path?test=1#hash");
+      initRouter('https://test.com/new-path?test=1#hash');
 
       return (
         <Link activeClassName="active" href="/new-path">
@@ -62,7 +62,7 @@ describe(Link.name, () => {
 
     await render(<ActiveLink />);
 
-    const linkEl = screen.querySelector(".active");
+    const linkEl = screen.querySelector('.active');
 
     expect(linkEl).toBeTruthy();
   });

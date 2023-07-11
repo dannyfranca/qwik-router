@@ -1,9 +1,5 @@
-import { match } from "path-to-regexp";
-import type {
-  RouteParams,
-  RouterConfig,
-  RouterConfigItem,
-} from "packages/qwik-router/src/types";
+import { match } from 'path-to-regexp';
+import { type RouteParams, type RouterConfig, type RouterConfigItem } from '../../types';
 
 /**
  * Get the matching route config for a given pathname and the path params values.

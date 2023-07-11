@@ -1,4 +1,4 @@
-import type { MutableRouteState } from "../types";
+import type { MutableRouteState } from '../types';
 
 /**
  * Convert a URL object to a mutable routing state. This is useful to generate the properties to mutate the routing store.

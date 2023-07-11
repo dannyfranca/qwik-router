@@ -1,14 +1,10 @@
-import { $, useContext, useContextProvider, useStore } from "@builder.io/qwik";
+import { $, useContext, useContextProvider, useStore } from '@builder.io/qwik';
 
-import type { RouteNavigate, RouteState } from "./types";
-import { urlToRouteState } from "./utils/url-to-route-state";
-import { listenToRouteChanges } from "./listen-to-route-changes";
-import {
-  RouteNavigateContext,
-  RouteParamsContext,
-  RouteStoreContext,
-} from "./contexts";
-import { navigateTo } from "./navigate-to";
+import type { RouteNavigate, RouteState } from './types';
+import { urlToRouteState } from './utils/url-to-route-state';
+import { listenToRouteChanges } from './listen-to-route-changes';
+import { RouteNavigateContext, RouteParamsContext, RouteStoreContext } from './contexts';
+import { navigateTo } from './navigate-to';
 
 export const initRouter = (strUrl: string) => {
   const url = new URL(strUrl);

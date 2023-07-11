@@ -1,7 +1,7 @@
-import { getWindow } from "packages/qwik-router/src/utils/get-window";
+import { getWindow } from './get-window';
 
 describe(getWindow.name, () => {
-  it("Does not return the window", async () => {
+  it('Does not return the window', async () => {
     expect(getWindow()).toBeUndefined();
   });
 });

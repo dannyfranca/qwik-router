@@ -1,4 +1,4 @@
-import type { HTMLAttributes, QRL } from "@builder.io/qwik";
+import type { HTMLAttributes, QRL } from '@builder.io/qwik';
 
 /**
  * The route store immutable properties.
@@ -74,8 +74,7 @@ export type RouteNavigate = QRL<(path: string) => Promise<void>>;
 /**
  * A helper type that extends the common HTML attributes to allow any other props to be passed to the component.
  */
-export type ComponentProps<T extends Record<string, unknown>> = T &
-  HTMLAttributes<HTMLElement>;
+export type ComponentProps<T extends Record<string, unknown>> = T & HTMLAttributes<HTMLElement>;
 
 /**
  * The definition of a link component.

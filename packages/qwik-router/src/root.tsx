@@ -1,8 +1,8 @@
-import { component$ } from "@builder.io/qwik";
-import { initRouter, useParams, useRoute } from "./routing";
-import type { RouterConfig } from "./types";
-import { Router } from "./components/router/router";
-import { Link } from "./components/link/link";
+import { component$ } from '@builder.io/qwik';
+import { initRouter, useParams, useRoute } from './routing';
+import type { RouterConfig } from './types';
+import { Router } from './components/router/router';
+import { Link } from './components/link/link';
 
 const DefaultComponent = component$(() => {
   return <div>Default Component</div>;
@@ -14,7 +14,7 @@ const Route1 = component$(() => {
   return (
     <div>
       I am Route 1<br />
-      Lang: {params["lang"]}
+      Lang: {params['lang']}
       <br />
       Pathname: {route.pathname}
     </div>
@@ -27,7 +27,7 @@ const Route2 = component$(() => {
   return (
     <div>
       I am Route 2<br />
-      Lang: {params["lang"]}
+      Lang: {params['lang']}
       <br />
       Hostname: {route.href}
     </div>
@@ -36,18 +36,18 @@ const Route2 = component$(() => {
 
 const routeConf1: RouterConfig = [
   {
-    path: "/:lang/route-1",
+    path: '/:lang/route-1',
     component: Route1,
   },
 ];
 
 const routeConf2: RouterConfig = [
   {
-    path: "/:lang/route-1",
+    path: '/:lang/route-1',
     component: Route1,
   },
   {
-    path: "/:lang/route-2",
+    path: '/:lang/route-2',
     component: Route2,
   },
 ];

@@ -7,7 +7,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": ["libs/qwik-router/tsconfig.*?.json"],
+    "project": ["packages/qwik-router/tsconfig.*?.json"],
     "ecmaVersion": 2021,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -23,7 +23,9 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "rules": {}
+      "rules": {
+        "qwik/use-method-usage": "off"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

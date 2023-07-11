@@ -76,7 +76,16 @@
       "options": {
         "noVerify": true,
         "push": false,
-        "releaseAs": "patch"
+        "releaseAs": "patch",
+        "postTargets": [
+          "qwik-router:publish-to-npm"
+        ]
+      }
+    },
+    "publish-to-npm": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
       }
     }
   },

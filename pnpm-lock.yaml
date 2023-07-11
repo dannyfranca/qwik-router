@@ -70,7 +70,7 @@ importers:
         version: 2.8.8
       qwik-nx:
         specifier: 1.0.7
-        version: 1.0.7(eslint@8.44.0)(nx@16.5.1)(typescript@5.1.6)(vite@4.4.2)(vitest@0.33.0)
+        version: 1.0.7(eslint@8.44.0)(nx@16.5.1)(typescript@5.1.6)(vite@4.4.3)(vitest@0.33.0)
       tslib:
         specifier: 2.6.0
         version: 2.6.0
@@ -81,14 +81,14 @@ importers:
         specifier: 5.22.1
         version: 5.22.1
       vite:
-        specifier: 4.4.2
-        version: 4.4.2(@types/node@20.4.1)
+        specifier: 4.4.3
+        version: 4.4.3(@types/node@20.4.1)
       vite-plugin-dts:
         specifier: 2.3.0
-        version: 2.3.0(@types/node@20.4.1)(vite@4.4.2)
+        version: 2.3.0(@types/node@20.4.1)(vite@4.4.3)
       vite-tsconfig-paths:
         specifier: 4.2.0
-        version: 4.2.0(typescript@5.1.6)(vite@4.4.2)
+        version: 4.2.0(typescript@5.1.6)(vite@4.4.3)
       vitest:
         specifier: 0.33.0
         version: 0.33.0(happy-dom@10.1.1)
@@ -2069,10 +2069,10 @@ packages:
       - debug
     dev: true
 
-  /@nrwl/vite@16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.2)(vitest@0.33.0):
+  /@nrwl/vite@16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.3)(vitest@0.33.0):
     resolution: {integrity: sha512-/lvpzGmSk9obL2FaziSHCMI5deZW/JJ7/XB36GH9HgpaIqKeod210NEHVNfdXOHhn2cBMhTebTh8cvPgBYXfhw==}
     dependencies:
-      '@nx/vite': 16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.2)(vitest@0.33.0)
+      '@nx/vite': 16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.3)(vitest@0.33.0)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -2300,20 +2300,20 @@ packages:
     dev: true
     optional: true
 
-  /@nx/vite@16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.2)(vitest@0.33.0):
+  /@nx/vite@16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.3)(vitest@0.33.0):
     resolution: {integrity: sha512-LfzkyvEWwR26c9QAP42bW+F+4s8pDxRd/S2WLcQTVugpsil248c7kBKPq9OP5cf2z9w9PWeN+by7hc7ICmFJ6w==}
     peerDependencies:
       vite: ^4.3.4
       vitest: '>=0.31.0 <1.0.0'
     dependencies:
-      '@nrwl/vite': 16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.2)(vitest@0.33.0)
+      '@nrwl/vite': 16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.3)(vitest@0.33.0)
       '@nx/devkit': 16.5.1(nx@16.5.1)
       '@nx/js': 16.5.1(nx@16.5.1)(typescript@5.1.6)
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.1.6)
       '@swc/helpers': 0.5.1
       dotenv: 10.0.0
       enquirer: 2.3.6
-      vite: 4.4.2(@types/node@20.4.1)
+      vite: 4.4.3(@types/node@20.4.1)
       vitest: 0.33.0(happy-dom@10.1.1)
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -5341,13 +5341,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /qwik-nx@1.0.7(eslint@8.44.0)(nx@16.5.1)(typescript@5.1.6)(vite@4.4.2)(vitest@0.33.0):
+  /qwik-nx@1.0.7(eslint@8.44.0)(nx@16.5.1)(typescript@5.1.6)(vite@4.4.3)(vitest@0.33.0):
     resolution: {integrity: sha512-zuS3T4kcUgKqRNBqClsPgMx7szE9Ckn8Hf6N9qWmOokIy/5yvMnAuiCkm6tiqhbzCuCl/ei2RCT6tOwxCXaHDA==}
     dependencies:
       '@nx/devkit': 16.5.1(nx@16.5.1)
       '@nx/js': 16.5.1(nx@16.5.1)(typescript@5.1.6)
       '@nx/linter': 16.5.1(eslint@8.44.0)(nx@16.5.1)(typescript@5.1.6)
-      '@nx/vite': 16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.2)(vitest@0.33.0)
+      '@nx/vite': 16.5.1(nx@16.5.1)(typescript@5.1.6)(vite@4.4.3)(vitest@0.33.0)
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -6133,7 +6133,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.4.2(@types/node@20.4.1)
+      vite: 4.4.3(@types/node@20.4.1)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -6145,7 +6145,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-dts@2.3.0(@types/node@20.4.1)(vite@4.4.2):
+  /vite-plugin-dts@2.3.0(@types/node@20.4.1)(vite@4.4.3):
     resolution: {integrity: sha512-WbJgGtsStgQhdm3EosYmIdTGbag5YQpZ3HXWUAPCDyoXI5qN6EY0V7NXq0lAmnv9hVQsvh0htbYcg0Or5Db9JQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -6161,14 +6161,14 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.29.0
       ts-morph: 18.0.0
-      vite: 4.4.2(@types/node@20.4.1)
+      vite: 4.4.3(@types/node@20.4.1)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths@4.2.0(typescript@5.1.6)(vite@4.4.2):
+  /vite-tsconfig-paths@4.2.0(typescript@5.1.6)(vite@4.4.3):
     resolution: {integrity: sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==}
     peerDependencies:
       vite: '*'
@@ -6179,14 +6179,14 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 2.1.1(typescript@5.1.6)
-      vite: 4.4.2(@types/node@20.4.1)
+      vite: 4.4.3(@types/node@20.4.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@4.4.2(@types/node@20.4.1):
-    resolution: {integrity: sha512-zUcsJN+UvdSyHhYa277UHhiJ3iq4hUBwHavOpsNUGsTgjBeoBlK8eDt+iT09pBq0h9/knhG/SPrZiM7cGmg7NA==}
+  /vite@4.4.3(@types/node@20.4.1):
+    resolution: {integrity: sha512-IMnXQXXWgLi5brBQx/4WzDxdzW0X3pjO4nqFJAuNvwKtxzAmPzFE1wszW3VDpAGQJm3RZkm/brzRdyGsnwgJIA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -6274,7 +6274,7 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.6.0
-      vite: 4.4.2(@types/node@20.4.1)
+      vite: 4.4.3(@types/node@20.4.1)
       vite-node: 0.33.0(@types/node@20.4.1)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:

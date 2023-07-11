@@ -26,6 +26,7 @@ runs:
     - run: corepack enable
 
     - name: Install NPM Dependencies
+      shell: bash
       run: pnpm install --frozen-lockfile
 
     - name: Derive appropriate SHAs for base and head for `nx affected` commands

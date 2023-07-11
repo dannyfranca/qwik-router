@@ -2,6 +2,12 @@ name: setup
 
 description: Setup Node, cache and install deps
 
+inputs:
+  node_version:
+    description: Node Version
+    required: false
+    default: '16'
+
 runs:
   using: composite
   steps:
@@ -19,9 +25,9 @@ runs:
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: ${{ inputs.node_version }}
+        registry-url: https://registry.npmjs.org
         cache: 'pnpm'
-        registry-url: https://registry.npmjs.org/
 
     - name: Enable Corepack
       shell: bash
@@ -33,6 +39,3 @@ runs:
 
     - name: Derive appropriate SHAs for base and head for `nx affected` commands
       uses: nrwl/nx-set-shas@v3.0.1
-      id: setSHAs
-      with:
-        main-branch-name: 'main'

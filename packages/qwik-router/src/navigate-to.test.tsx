@@ -1,4 +1,5 @@
-import { navigateTo, urlToRouteState } from './routing';
+import { navigateTo } from './navigate-to';
+import { urlToRouteState } from './utils/url-to-route-state';
 
 describe(navigateTo.name, () => {
   const url = new URL('https://test.com/path?test=1#hash');

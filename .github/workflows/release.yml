@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        required: true
+        type: choice
+        description: Release type
+        options:
+          - patch
+          - minor
+          - major
+          - previous
+        default: 'patch'
+      package:
+        required: true
+        type: choice
+        description: Package to release
+        options:
+          - qwik-router
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Check
+        uses: ./.github/actions/check
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [check]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpx nx run ${{ inputs.package }}:version-publish --configuration=${{ inputs.type }} --push=true --baseBranch=${{ github.ref_name }}
+      
+      - name: Commit files
+        run: |
+          git commit -a -m "chore(${{ inputs.package }}): bump version"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          force: true
+          tags: true

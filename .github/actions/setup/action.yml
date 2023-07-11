@@ -1,0 +1,37 @@
+name: setup
+
+description: Setup Node, cache and install deps
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout All Commits
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup Git User
+      shell: bash
+      run: |
+        git config --local user.email "github-actions-ci@users.noreply.github.com"
+        git config --local user.name "github-actions-ci"
+
+    - uses: pnpm/action-setup@v2.2.4
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        registry-url: https://registry.npmjs.org
+        cache: 'pnpm'
+
+    - name: Enable Corepack
+      shell: bash
+      run: corepack enable
+
+    - name: Install NPM Dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
+
+    - name: Derive appropriate SHAs for base and head for `nx affected` commands
+      uses: nrwl/nx-set-shas@v3.0.1

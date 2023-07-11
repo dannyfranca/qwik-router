@@ -1,0 +1,23 @@
+name: Test
+
+description: Lint, Build and Test
+
+runs:
+  using: composite
+
+  steps:
+    - name: Lint
+      shell: bash
+      run: pnpx nx affected:lint --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
+
+    - name: Build
+      shell: bash
+      run: pnpx nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
+
+    - name: Test
+      shell: bash
+      run: npx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
+
+    # - name: E2E Tests
+    #   shell: bash
+    #   run: npx nx affected --target=e2e --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}

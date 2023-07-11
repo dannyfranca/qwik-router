@@ -1,8 +1,7 @@
-<h1 align="center">qwik-router</h1>
-<p align="center">A SPA-like router for Qwik.</p>
-<p align="center">
+<h1 align="center" dir="auto">qwik-router</h1>
+<p align="center" dir="auto">A SPA-like router for Qwik.</p>
 
-<p align="center">
+<p align="center" dir="auto">
 
 <a href="https://npmjs.com/package/qwik-router" target="_blank">
     <img src="https://img.shields.io/npm/dt/qwik-router.svg?style=flat-square&logo=npm" />

@@ -11,7 +11,6 @@ on:
           - patch
           - minor
           - major
-          - previous
         default: 'patch'
       package:
         required: true
@@ -45,7 +44,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpx nx run ${{ inputs.package }}:version-publish --configuration=${{ inputs.type }} --push=true --baseBranch=${{ github.ref_name }}
+        run: pnpx nx run ${{ inputs.package }}:version --releaseAs=${{ inputs.type }} --push=true --baseBranch=${{ github.ref_name }}
       
       - name: Commit files
         run: |

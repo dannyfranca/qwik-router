@@ -35,12 +35,6 @@
         }
       }
     },
-    "publish": {
-      "command": "node tools/scripts/publish.mjs qwik-router {args.ver} {args.tag}",
-      "dependsOn": [
-        "build"
-      ]
-    },
     "test": {
       "executor": "@nx/vite:test",
       "outputs": [
@@ -75,6 +69,15 @@
       "options": {
         "command": "node --inspect-brk ../../node_modules/vite/bin/vite.js --mode ssr --force",
         "cwd": "packages/qwik-router"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "noVerify": true,
+        "push": false,
+        "releaseAs": "patch"
       }
     }
   },

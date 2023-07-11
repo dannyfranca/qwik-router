@@ -21,19 +21,19 @@ on:
           - qwik-router
 
 jobs:
-  test:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup
         uses: ./.github/actions/setup
 
-      - name: Test
-        uses: ./.github/actions/test
+      - name: Check
+        uses: ./.github/actions/check
 
   release:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [check]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -49,8 +49,6 @@ jobs:
       
       - name: Commit files
         run: |
-          git config --local user.email "github-actions-ci@users.noreply.github.com"
-          git config --local user.name "github-actions-ci"
           git commit -a -m "chore(${{ inputs.package }}): bump version"
 
       - name: Push changes

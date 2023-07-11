@@ -32,4 +32,6 @@ runs:
       run: pnpm install --frozen-lockfile
 
     - name: Derive appropriate SHAs for base and head for `nx affected` commands
-      uses: nrwl/nx-set-shas@v3
+      uses: nrwl/nx-set-shas@v3.0.1
+      with:
+        main-branch-name: 'main'

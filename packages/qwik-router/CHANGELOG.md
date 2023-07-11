@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.5.4](https://github.com/dannyfranca/qwik-router/compare/qwik-router-0.5.3...qwik-router-0.5.4) (2023-07-11)
+
+
+### Reverts
+
+* add back post target to npm publish ([34b1096](https://github.com/dannyfranca/qwik-router/commit/34b1096eded9d3c5b267e119be796ec9b51640f6))
+
+
+
 ## [0.5.3](https://github.com/dannyfranca/qwik-router/compare/qwik-router-0.5.2...qwik-router-0.5.3) (2023-07-11)
 
 

@@ -39,15 +39,31 @@ I'll add more documentation and examples in the next few days.
 
 ```bash
 git clone https://github.com/dannyfranca/qwik-router.git
-pnpm i
-pnpm run dev
 ```
 
-## Installing
+```bash
+pnpm i
+```
+
+```bash
+pnpm nx run qwik-router:serve
+```
+
+## Installing in your Project
   
 ```bash
 pnpm i qwik-router
+```
+
+or
+
+```bash
 yarn add qwik-router
+```
+
+or
+
+```bash
 npm i qwik-router
 ```
 

@@ -39,15 +39,31 @@ I'll add more documentation and examples in the next few days.
 
 ```bash
 git clone https://github.com/dannyfranca/qwik-router.git
-pnpm i
-pnpm run dev
 ```
 
-## Installing
+```bash
+pnpm i
+```
+
+```bash
+pnpm nx run qwik-router:serve
+```
+
+## Installing in your Project
   
 ```bash
 pnpm i qwik-router
+```
+
+or
+
+```bash
 yarn add qwik-router
+```
+
+or
+
+```bash
 npm i qwik-router
 ```
 
@@ -68,6 +84,9 @@ export default component$((props: { url: string }) => {
   return <Child />;
 });
 ```
+
+> ## Would you give us a ⭐?
+> This project was quite a hard work. If you like it, please, give us a ⭐ on [GitHub](https://github.com/dannyfranca/qwik-router) and help us to spread the word.
 
 ## Reacting to Route Changes
 
@@ -300,11 +319,8 @@ export default component$((props: { url: string }) => {
 
 ```
 
-## How It Works
+## ⭐ Give us a Star ⭐
 
-All the routing is about changing the route state and reacting to it.
+It was quite a challenge to build this project, and we are very proud of it. We hope you enjoy it too.
 
-While navigating by the Qwik Router, a `history.pushState` is executed with a state of type [`MutableRouteState`](./src/types.ts#MutableRouteState).
-
-A listener is set to react to the `popstate` event and receive the state of type [`MutableRouteState`](./src/types.ts#MutableRouteState) to update the reactive route state.
-
+If this project generated value for you, please give us a star on [GitHub](https://github.com/dannyfranca/qwik-router). It helps the project be discovered by other people.

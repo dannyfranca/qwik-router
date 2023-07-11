@@ -9,11 +9,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: [16]
-        os: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Cancel Previous Runs
@@ -27,8 +23,6 @@ jobs:
 
       - name: Setup
         uses: ./.github/actions/setup
-        with:
-          node_version: ${{ matrix.node_version }}
 
       - name: Check
         uses: ./.github/actions/check

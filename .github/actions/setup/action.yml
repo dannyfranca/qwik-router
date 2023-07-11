@@ -23,7 +23,9 @@ runs:
         cache: 'pnpm'
         registry-url: https://registry.npmjs.org/
 
-    - run: corepack enable
+    - name: Enable Corepack
+      shell: bash
+      run: corepack enable
 
     - name: Install NPM Dependencies
       shell: bash

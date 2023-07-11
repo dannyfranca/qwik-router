@@ -34,15 +34,15 @@ Discussing the design up front helps to ensure that we're ready to accept your w
 
 ### ▶ 3. Fork the this repo and create a branch.
 
-- Hit that "Fork" button above (in this repo's github page).
+  - Hit that "Fork" button above (in this repo's github page).
 
 ![image](https://user-images.githubusercontent.com/1430726/95460679-ec014400-097d-11eb-9a7a-93e0262d37d9.png)
 
-- git clone your fork
+  - git clone your fork
 
 `git clone YOUR_FORK_URL`
 
-- Create a new branch locally in your fork's repo
+  - Create a new branch locally in your fork's repo
 
 ```shell
 git checkout -b my-fix-branch main
@@ -83,11 +83,11 @@ Make sure you check the following checkbox "Allow edits from maintainers" -
 
 If you need to update your PR for some reason -
 
-- Make the required updates.
+  - Make the required updates.
 
-- Re-run the tests to ensure tests are still passing `npm run test`
+  - Re-run the tests to ensure tests are still passing `npm run test`
 
-- Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
+  - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
   ```shell
   git rebase main -i
@@ -98,30 +98,28 @@ If you need to update your PR for some reason -
 
 After your pull request is merged, you can safely delete your branch and pull the changes from the main (upstream) repository:
 
-- Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:
+  - Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:
 
   ```shell
   git push origin --delete my-fix-branch
   ```
 
-- Check out the main branch:
+  - Check out the main branch:
 
   ```shell
   git checkout main -f
   ```
 
-- Delete the local branch:
+  - Delete the local branch:
 
   ```shell
   git branch -D my-fix-branch
   ```
 
-- Update your main with the latest upstream version:
+  - Update your main with the latest upstream version:
 
   ```shell
   git pull --ff upstream main
   ```
 
 ### ▶ 9. That's it! Thank you for your contribution! 🙏💓
-
-[commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#

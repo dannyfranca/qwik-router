@@ -7,23 +7,15 @@ As a contributor, here are the guidelines we would like you to follow:
 
 Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to help us keep this project open and inclusive.
 
-<br/>
-
 ## Found a bug? Want a feature? - Submit an Issue
 
 [Choose an issue template](https://github.com/dannyfranca/qwik-router/issues/new/choose) to file a bug report / feature request.
 
-<br/>
-
 ## Ready to contribute a Pull Request (PR)?
-
-<br/>
 
 ### ▶ 1. First - [Search this repo for existing PRs](https://github.com/dannyfranca/qwik-router/pulls) !
 
 Try to find an open or closed PR that relates to the change you want to introduce.
-
-<br/>
 
 ### ▶ 2. **Before you start coding - [find](https://github.com/dannyfranca/qwik-router/issues) / [create an issue](https://github.com/dannyfranca/qwik-router/issues/new/choose)**
 

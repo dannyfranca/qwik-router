@@ -78,18 +78,18 @@
         "push": false,
         "releaseAs": "patch",
         "postTargets": [
-          "qwik-router:publish",
+          "qwik-router:publish-to-npm",
           "qwik-router:push-to-github"
         ]
       }
     },
-    "publish": {
+    "publish-to-npm": {
       "executor": "ngx-deploy-npm:deploy",
       "options": {
         "access": "public"
       }
     },
-    "github": {
+    "push-to-github": {
       "executor": "@jscutlery/semver:github",
       "options": {
         "tag": "${tag}",

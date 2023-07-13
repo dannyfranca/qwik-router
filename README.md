@@ -17,6 +17,18 @@
 </a>
 </p>
 
+## Table of Contents
+- [Why?](#why)
+- [See a Working Example](#see-a-working-example)
+- [Installing in your Project](#installing-in-your-project)
+- [Initiating the router](#initiating-the-router)
+- [Reacting to Route Changes](#reacting-to-route-changes)
+- [Navigating](#navigating)
+  - [The `useNavigate` Hook](#the-usenavigate-hook)
+  - [The `Link` Component](#the-link-component)
+- [Component Routing](#component-routing)
+  - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
+
 ## Why?
 
 Many Qwik native solutions, like routing, are very attached to Qwik City, which is great for most use cases. But sometimes, more than a file-based routing is needed.

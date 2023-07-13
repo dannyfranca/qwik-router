@@ -27,7 +27,9 @@
   - [The `useNavigate` Hook](#the-usenavigate-hook)
   - [The `Link` Component](#the-link-component)
 - [Component Routing](#component-routing)
+  - [Matching Patterns](#matching-patterns)
   - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
+- [⭐ Give us a Star ⭐](#⭐-give-us-a-star-⭐)
 
 ## Why?
 
@@ -83,7 +85,7 @@ npm i qwik-router
 
 To initiate the router, import the `initRouter` and execute in the Root component giving a string URL as input.
 
-This will create a [Qwik context](https://qwik.builder.io/docs/components/context/) that will be changed every time the app navigates using the [`navigateTo`](./src/navigate-to.ts), the [`Link`](#the-link-component) component or the `window` object `popstate` event.
+This will create a <a href="https://qwik.builder.io/docs/components/context/" target="_blank">Qwik context</a> that will be changed every time the app navigates using the [`navigateTo`](./src/navigate-to.ts), the [`Link`](#the-link-component) component or the `window` object `popstate` event.
 
 ```typescript
 // root.tsx
@@ -97,14 +99,11 @@ export default component$((props: { url: string }) => {
 });
 ```
 
-> ## Would you give us a ⭐?
-> This project was quite a hard work. If you like it, please, give us a ⭐ on [GitHub](https://github.com/dannyfranca/qwik-router) and help us to spread the word.
-
 ## Reacting to Route Changes
 
-The route state is a reactive [Qwik store](https://qwik.builder.io/docs/components/state/#usestore) with the interface [`RouteState`](./src/types.ts#RouteState) shared with a [Qwik context](https://qwik.builder.io/docs/components/context/).
+The route state is a reactive <a href="https://qwik.builder.io/docs/components/state/#usestore" target="_blank">Qwik store</a> with the interface [`RouteState`](./src/types.ts#RouteState) shared with a <a href="https://qwik.builder.io/docs/components/context/" target="_blank">Qwik context</a>.
 
-Import the `useRoute` and/or `useParams` and set up a [lifecycle task](https://qwik.builder.io/docs/components/lifecycle/).
+Import the `useRoute` and/or `useParams` and set up a <a href="https://qwik.builder.io/docs/components/lifecycle/" target="_blank">lifecycle task</a>.
 
 ### ⚠️ Warning
 
@@ -156,7 +155,7 @@ export default component$(() => {
 
 The `initRouter` also returns a router reactive state, just like `useRouter`.
 
-Notive the route state is very close to the native [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL). Full compatibility soon.
+Notive the route state is very close to the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL" target="_blank">URL API</a>. Full compatibility soon.
 
 ```typescript
 // root.tsx
@@ -230,7 +229,7 @@ import { RouteComponent3 } from './components/RouteComponent3';
 
 const routes: RouterConfig = [
   {
-    path: '/:lang/route-1',
+    path: '/:lang?/route-1', // Optional lang parameter. Matches /route-1 and /en/route-1
     component: RouteComponent1,
   },
   {
@@ -260,13 +259,17 @@ const App = component$((props: { url: string }) => {
 });
 ```
 
+### Matching Patterns
+
+To check all possible advanced matching patterns, check the <a href="https://github.com/pillarjs/path-to-regexp" target="_blank">path-to-regexp</a> documentation.
+
 ### Multiple Routers and URL Parameters
 
 The router supports URL parameters. You can access them in the component with the `useParams` hook.
 
 The reason not to use the `useRoute` hook is because you can use multiple Route components, leading to different param states.
 
-The `Router` initializes the param state as a [Context](https://qwik.builder.io/docs/components/context/), so it can be accessed by any component under it using the `useParams` hook.
+The `Router` initializes the param state as a <a href="https://qwik.builder.io/docs/components/context/" target="_blank">Context</a>, so it can be accessed by any component under it using the `useParams` hook.
 
 ```typescript
 // root.tsx
@@ -335,4 +338,4 @@ export default component$((props: { url: string }) => {
 
 It was quite a challenge to build this project, and we are very proud of it. We hope you enjoy it too.
 
-If this project generated value for you, please give us a star on [GitHub](https://github.com/dannyfranca/qwik-router). It helps the project be discovered by other people.
+If this project generated value for you, please give us a star on <a href="https://github.com/dannyfranca/qwik-router" target="_blank">GitHub</a>. It helps the project be discovered by other people.

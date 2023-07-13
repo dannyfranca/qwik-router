@@ -1,6 +1,6 @@
 {
   "name": "qwik-router",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "A SPA-like router for Qwik.",
   "license": "MIT",
   "private": false,

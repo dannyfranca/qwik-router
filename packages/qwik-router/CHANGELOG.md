@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.5.7](https://github.com/dannyfranca/qwik-router/compare/qwik-router-0.5.6...qwik-router-0.5.7) (2023-07-13)
+
+
+
 ## [0.5.6](https://github.com/dannyfranca/qwik-router/compare/qwik-router-0.5.5...qwik-router-0.5.6) (2023-07-13)
 
 

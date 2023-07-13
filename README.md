@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="400" src="./assets/qwik-router.png" alt="Qwik Router">
+  <img width="600" src="./assets/qwik-router.png" alt="Qwik Router">
 </p>
 <h1 align="center" dir="auto">A SPA-like router for Qwik</h1>
 <p align="center" dir="auto">

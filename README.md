@@ -29,7 +29,7 @@
 - [Component Routing](#component-routing)
   - [Matching Patterns](#matching-patterns)
   - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
-- [⭐ Give us a Star ⭐](#⭐-give-us-a-star-⭐)
+- <a href="https://github.com/dannyfranca/qwik-router" target="_blank">⭐ Give us a Star ⭐</a>
 
 ## Why?
 

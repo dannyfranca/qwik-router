@@ -1,20 +1,20 @@
-<h1 align="center" dir="auto">qwik-router</h1>
-<p align="center" dir="auto">A SPA-like router for Qwik.</p>
-
+<p align="center">
+  <img width="400" src="./assets/qwik-router.png" alt="Qwik Router">
+</p>
+<h1 align="center" dir="auto">A SPA-like router for Qwik</h1>
 <p align="center" dir="auto">
-
 <a href="https://npmjs.com/package/qwik-router" target="_blank">
     <img src="https://img.shields.io/npm/dt/qwik-router.svg?style=flat-square&logo=npm" />
 </a>
-
 <a href="https://npmjs.com/package/qwik-router" target="_blank">
     <img src="https://img.shields.io/npm/v/qwik-router/latest.svg?style=flat-square&logo=npm" />
 </a>
-
 <a href="https://www.codacy.com/manual/qwik-router" target="_blank">
     <img src="https://img.shields.io/codacy/grade/addca1007fb044c3a994c7e0ec504092?style=flat-square&logo=codacy" />
 </a>
-
+<a href="https://opensource.org/licenses/MIT" target="_blank">
+  <img src="https://camo.githubusercontent.com/fd551ba4b042d89480347a0e74e31af63b356b2cac1116c7b80038f41b04a581/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d677265656e2e737667" alt="MIT" data-canonical-src="https://img.shields.io/badge/License-MIT-green.svg" style="max-width: 100%;">
+</a>
 </p>
 
 ## Why?

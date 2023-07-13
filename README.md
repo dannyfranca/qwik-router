@@ -18,18 +18,24 @@
 </p>
 
 ## Table of Contents
-  - [Why?](#why)
-  - [See a Working Example](#see-a-working-example)
-  - [Installing in your Project](#installing-in-your-project)
-  - [Initiating the router](#initiating-the-router)
-  - [Reacting to Route Changes](#reacting-to-route-changes)
-  - [Navigating](#navigating)
-    - [The `useNavigate` Hook](#the-usenavigate-hook)
-    - [The `Link` Component](#the-link-component)
-  - [Component Routing](#component-routing)
-    - [Matching Patterns](#matching-patterns)
-    - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
-  - [⭐ Give us a Star ⭐](https://github.com/dannyfranca/qwik-router)
+- [Table of Contents](#table-of-contents)
+- [Why?](#why)
+- [See a Working Example](#see-a-working-example)
+- [Installing in your Project](#installing-in-your-project)
+- [Initiating the router](#initiating-the-router)
+- [Reacting to Route Changes](#reacting-to-route-changes)
+- [Navigating](#navigating)
+  - [The `useNavigate` Hook](#the-usenavigate-hook)
+  - [The `Link` Component](#the-link-component)
+- [Component Routing](#component-routing)
+  - [Matching Patterns](#matching-patterns)
+  - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
+- [ROADMAP:](#roadmap)
+- [⭐ Give us a Star ⭐](https://github.com/dannyfranca/qwik-router)
+- [Contributing](#contributing)
+- [Code Of Conduct](#code-of-conduct)
+- [Related Links](#related-links)
+- [License](#license)
 
 ## Why?
 
@@ -105,7 +111,7 @@ The route state is a reactive [Qwik store](https://qwik.builder.io/docs/componen
 
 Import the `useRoute` and/or `useParams` and set up a [lifecycle task](https://qwik.builder.io/docs/components/lifecycle/).
 
-### ⚠️ Warning
+⚠️ **Warning**:
 
 The `useParams` hooks only works under a [`Router`](#component-routing) component.
 
@@ -334,8 +340,53 @@ export default component$((props: { url: string }) => {
 
 ```
 
+## Roadmap
+
+- [x] Dynamic Route Matching
+- [x] Params in URL
+- [x] Advanced Matching Patterns
+- [x] Router Component
+- [x] Link Component
+- [x] Programmatic Navigation
+- [ ] Route State Compatible with native URL
+- [ ] Navigating State
+- [ ] Properties to Routes
+- [ ] Scroll Behavior
+- [ ] Transition Animations
+- [ ] Navigation Guards
+- [ ] Route Meta Fields
+- [ ] Named Routes
+- [ ] Named Views
+- [ ] Passing Props to Routes
+- [ ] Nested Routes
+- [ ] Different History Modes
+- [ ] more...
+
 ## ⭐ Give us a Star ⭐
 
 It was quite a challenge to build this project, and we are very proud of it. We hope you enjoy it too.
 
 If this project generated value for you, please give us a star on [GitHub](https://github.com/dannyfranca/qwik-router). It helps the project be discovered by other people.
+
+## Contributing
+
+Want to contribute? 😀
+
+Please read and follow our [Contributing Guidelines](CONTRIBUTING.md) to learn what are the right steps to take before contributing your time, effort and code.
+
+Thanks 🙏
+
+## Code Of Conduct
+
+Be kind to each other and please read our [code of conduct](CODE_OF_CONDUCT.md).
+
+## Related Links
+
+  - [Qwik Docs](https://qwik.builder.io/)
+  - [Qwik Discord](https://qwik.builder.io/chat)
+  - [Qwik GitHub](https://github.com/BuilderIO/qwik)
+  - [@QwikDev](https://twitter.com/QwikDev)
+
+## License
+
+MIT

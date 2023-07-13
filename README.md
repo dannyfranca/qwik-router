@@ -18,18 +18,18 @@
 </p>
 
 ## Table of Contents
-- [Why?](#why)
-- [See a Working Example](#see-a-working-example)
-- [Installing in your Project](#installing-in-your-project)
-- [Initiating the router](#initiating-the-router)
-- [Reacting to Route Changes](#reacting-to-route-changes)
-- [Navigating](#navigating)
-  - [The `useNavigate` Hook](#the-usenavigate-hook)
-  - [The `Link` Component](#the-link-component)
-- [Component Routing](#component-routing)
-  - [Matching Patterns](#matching-patterns)
-  - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
-- [⭐ Give us a Star ⭐](https://github.com/dannyfranca/qwik-router)
+  - [Why?](#why)
+  - [See a Working Example](#see-a-working-example)
+  - [Installing in your Project](#installing-in-your-project)
+  - [Initiating the router](#initiating-the-router)
+  - [Reacting to Route Changes](#reacting-to-route-changes)
+  - [Navigating](#navigating)
+    - [The `useNavigate` Hook](#the-usenavigate-hook)
+    - [The `Link` Component](#the-link-component)
+  - [Component Routing](#component-routing)
+    - [Matching Patterns](#matching-patterns)
+    - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
+  - [⭐ Give us a Star ⭐](https://github.com/dannyfranca/qwik-router)
 
 ## Why?
 

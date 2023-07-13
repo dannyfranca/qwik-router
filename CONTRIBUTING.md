@@ -13,38 +13,38 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to help us keep
 
 ## Ready to contribute a Pull Request (PR)?
 
-### ▶ 1. First - [Search this repo for existing PRs](https://github.com/dannyfranca/qwik-router/pulls) !
+### 1. First - [Search this repo for existing PRs](https://github.com/dannyfranca/qwik-router/pulls) !
 
 Try to find an open or closed PR that relates to the change you want to introduce.
 
-### ▶ 2. **Before you start coding - [find](https://github.com/dannyfranca/qwik-router/issues) / [create an issue](https://github.com/dannyfranca/qwik-router/issues/new/choose)**
+### 2. **Before you start coding - [find](https://github.com/dannyfranca/qwik-router/issues) / [create an issue](https://github.com/dannyfranca/qwik-router/issues/new/choose)**
 
 **Make sure there's an issue** describing the problem you're fixing, or documents the design for the feature you'd like to add.
 Discussing the design up front helps to ensure that we're ready to accept your work.
 
 **Don't waste your time working on code before you got a 👍 in an issue comment.**
 
-### ▶ 3. Fork the this repo and create a branch.
+### 3. Fork the this repo and create a branch.
 
   - Hit that "Fork" button above (in this repo's github page).
 
-![image](https://user-images.githubusercontent.com/1430726/95460679-ec014400-097d-11eb-9a7a-93e0262d37d9.png)
+  ![image](https://user-images.githubusercontent.com/1430726/95460679-ec014400-097d-11eb-9a7a-93e0262d37d9.png)
 
   - git clone your fork
 
-`git clone YOUR_FORK_URL`
+  `git clone YOUR_FORK_URL`
 
   - Create a new branch locally in your fork's repo
 
-```shell
-git checkout -b my-fix-branch main
-```
+  ```shell
+  git checkout -b my-fix-branch main
+  ```
 
-### ▶ 4. Make sure you add / modify tests
+### 4. Make sure you add / modify tests
 
 Run `pnpm run test` to make sure there aren't any errors
 
-### ▶ 5. Commit your changes using commitizen:
+### 5. Commit your changes using commitizen:
 
 Instead of `git commit` use the following command:
 
@@ -59,13 +59,13 @@ This will create a descriptive commit message that follows the
 
 This is necessary to generate meaningful release notes / CHANGELOG automatically.
 
-### ▶ 6. Push your branch to GitHub:
+### 6. Push your branch to GitHub:
 
 ```shell
 git push origin my-fix-branch
 ```
 
-### ▶ 7. Create a PR
+### 7. Create a PR
 
 In GitHub, create a pull request for `dannyfranca/qwik-router:main`.
 
@@ -73,7 +73,7 @@ Make sure you check the following checkbox "Allow edits from maintainers" -
 
 ![image](https://user-images.githubusercontent.com/1430726/95461503-fbcd5800-097e-11eb-9b55-321d1ff0e6bb.png)
 
-If you need to update your PR for some reason -
+If you need to update your PR for some reason:
 
   - Make the required updates.
 

@@ -15,7 +15,9 @@ import { manifest } from '@qwik-client-manifest';
 import Root from './root';
 
 export default function (opts: RenderToStreamOptions) {
-  return renderToStream(<Root url="http://localhost:4200" />, {
+  const req = (opts.stream as any).req;
+  const url = new URL(req.originalUrl, `http://${req.headers['host']}`);
+  return renderToStream(<Root url={url.toString()} />, {
     manifest,
     ...opts,
   });

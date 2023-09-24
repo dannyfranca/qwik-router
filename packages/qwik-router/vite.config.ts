@@ -55,9 +55,6 @@ export default defineConfig(() => {
         include: ['src/**/**'],
         exclude: ['src/root.tsx', 'src/entry.dev.tsx', 'src/entry.ssr.tsx'],
         extension: ['.js', '.ts', '.tsx'],
-        coverage: {
-          reportsDirectory: '../../coverage/libs/qwik-router',
-        },
       },
     },
   };

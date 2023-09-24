@@ -1,6 +1,9 @@
 name: Test
 
 description: Lint, Build and Test
+inputs:
+  CODACY_PROJECT_TOKEN:
+    required: true
 
 runs:
   using: composite
@@ -17,6 +20,12 @@ runs:
     - name: Test
       shell: bash
       run: npx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
+
+    - name: Run codacy-coverage-reporter
+      uses: codacy/codacy-coverage-reporter-action@v1
+      with:
+        project-token: ${{ inputs.CODACY_PROJECT_TOKEN }}
+        coverage-reports: coverage/packages/qwik-router
 
     # - name: E2E Tests
     #   shell: bash

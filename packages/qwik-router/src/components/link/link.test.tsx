@@ -6,7 +6,6 @@ import { Window } from 'happy-dom';
   innerHeight: 768,
   url: 'http://localhost:8080',
 });
-import * as qwikBuild from '@builder.io/qwik/build';
 import { createDOM } from '@builder.io/qwik/testing';
 import { component$ } from '@builder.io/qwik';
 
@@ -14,9 +13,6 @@ import { initRouter, useRoute } from '../../routing';
 import { Link } from './link';
 
 const url = new URL('https://test.com/path?test=1#hash');
-
-const isBrowserMock = vi.fn(() => true);
-vi.spyOn(qwikBuild, 'isBrowser', 'get').mockImplementation(isBrowserMock);
 
 const StubChild = component$(() => {
   const routeState = useRoute();
@@ -38,13 +34,17 @@ const StubRoot = component$(({ url }: { url: string }) => {
 
 describe(Link.name, () => {
   it('Changes rendering after navigation', async () => {
-    const { screen, render } = await createDOM();
+    const { screen, render, userEvent } = await createDOM();
 
     await render(<StubRoot url={url.toString()} />);
 
     const pathEl = screen.querySelector('.stub-path');
 
     expect(pathEl!.textContent).toBe('/path');
+
+    await userEvent('.navigate', 'click');
+
+    expect(pathEl!.textContent).toBe('/new-path');
   });
 
   it('Has active--link class', async () => {

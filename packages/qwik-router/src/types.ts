@@ -28,6 +28,18 @@ export interface ImmutableRouteState {
    * @example `8080`.
    */
   readonly port: string;
+  /**
+   * This is always an empty string to keep full compatibility with native URL interface.
+   * For security reasons, the implementation of this interface removes the username/password section from the URL.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/username
+   */
+  readonly username: string;
+  /**
+   * This is always an empty string to keep full compatibility with native URL interface.
+   * For security reasons, the implementation of this interface removes the username/password section from the URL.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/password
+   */
+  readonly password: string;
 }
 
 /**
@@ -55,10 +67,25 @@ export interface MutableRouteState {
    */
   search: string;
   /**
+   * A native URLSearchParams object containing all the URL's parameters.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+   */
+  searchParams: URLSearchParams;
+  /**
    * The query of the URL serialized from the URL params.
    * @example `{ query: 'string' }`
    */
   query: Record<string, string>;
+  /**
+   * A method to correctly serialize the URL to string when the URL is used in a string context.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toString
+   */
+  toString: () => string;
+  /**
+   * A method to correctly serialize the URL when JSON.stringify is called on the URL.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toJSON
+   */
+  toJSON: () => string;
 }
 
 /**

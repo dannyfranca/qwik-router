@@ -1,10 +1,12 @@
-import { $, type QRL, useContext, useContextProvider, useStore, useTask$ } from '@builder.io/qwik';
+import { $, type QRL, useContext, useContextProvider, useStore, useTask$, useVisibleTask$ } from '@builder.io/qwik';
 
 import type { RouteNavigate, RouteState } from './types';
 import { urlToRouteState } from './utils/url-to-route-state';
 import { listenToRouteChanges } from './listen-to-route-changes';
 import { RouteNavigateContext, RouteParamsContext, RouteStoreContext } from './contexts';
 import { navigateTo } from './navigate-to';
+import { getHistory } from './utils/get-window';
+import { generateNewUrlStateFromPath } from './utils/generate-new-url-from-path';
 
 export const initRouter = (strUrl: string) => {
   const url = new URL(strUrl);
@@ -23,8 +25,12 @@ export const initRouter = (strUrl: string) => {
     track(() => routeStore.search);
     (routeStore.searchParams as URLSearchParams) = new URLSearchParams(routeStore.search);
   });
+  useVisibleTask$(() => {
+    const newState = generateNewUrlStateFromPath(routeStore.origin, routeStore.href);
+    getHistory()?.replaceState(newState, '', routeStore.href);
+  });
 
-  const goTo: RouteNavigate = $(async (path) => navigateTo(routeStore, path));
+  const goTo: RouteNavigate = $(async (location) => navigateTo(routeStore, location));
 
   useContextProvider(RouteStoreContext, routeStore);
   useContextProvider(RouteNavigateContext, goTo);

@@ -1,4 +1,4 @@
-import { $, useContext, useContextProvider, useStore } from '@builder.io/qwik';
+import { $, type QRL, useContext, useContextProvider, useStore, useTask$ } from '@builder.io/qwik';
 
 import type { RouteNavigate, RouteState } from './types';
 import { urlToRouteState } from './utils/url-to-route-state';
@@ -9,7 +9,21 @@ import { navigateTo } from './navigate-to';
 export const initRouter = (strUrl: string) => {
   const url = new URL(strUrl);
 
-  const routeStore = useStore<RouteState>(urlToRouteState(url));
+  const routeStore = useStore<RouteState>({
+    ...urlToRouteState(url),
+    toString: $(() => '') as unknown as () => string,
+    toJSON: $(() => '') as unknown as () => string,
+  });
+
+  useTask$(() => {
+    (routeStore.toString as unknown as QRL<() => string>) = $(() => routeStore.href);
+    (routeStore.toJSON as unknown as QRL<() => string>) = $(() => routeStore.href);
+  });
+  useTask$(({ track }) => {
+    track(() => routeStore.search);
+    (routeStore.searchParams as URLSearchParams) = new URLSearchParams(routeStore.search);
+  });
+
   const goTo: RouteNavigate = $(async (path) => navigateTo(routeStore, path));
 
   useContextProvider(RouteStoreContext, routeStore);

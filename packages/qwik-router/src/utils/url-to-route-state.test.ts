@@ -17,6 +17,11 @@ describe(urlToRouteState.name, () => {
       host: 'test.com:9000',
       hostname: 'test.com',
       port: '9000',
-    });
+      username: '',
+      password: '',
+      searchParams: url.searchParams,
+      toJSON: expect.any(Function),
+      toString: expect.any(Function),
+    } as URL);
   });
 });

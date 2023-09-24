@@ -6,7 +6,6 @@ import { Window } from 'happy-dom';
   innerHeight: 768,
   url: 'http://localhost:8080',
 });
-import * as qwikBuild from '@builder.io/qwik/build';
 import { createDOM } from '@builder.io/qwik/testing';
 import { component$ } from '@builder.io/qwik';
 
@@ -14,9 +13,6 @@ import { type RouterConfig } from '../../types';
 import { Link } from '../link/link';
 import { Router } from './router';
 import { initRouter, useParams } from '../../routing';
-
-const isBrowserMock = vi.fn(() => true);
-vi.spyOn(qwikBuild, 'isBrowser', 'get').mockImplementation(isBrowserMock);
 
 const Route1 = component$(() => {
   const params = useParams();

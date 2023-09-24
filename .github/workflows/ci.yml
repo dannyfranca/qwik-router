@@ -1,6 +1,7 @@
 name: Pull Request Checks
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches:

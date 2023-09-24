@@ -5,11 +5,11 @@ describe(navigateTo.name, () => {
   const url = new URL('https://test.com/path?test=1#hash');
   const pushStateSpy = vi.spyOn(window.history, 'pushState');
 
-  it('Does not navigate if not in browser', () => {
+  it('navigates when navigateTo is called', () => {
     const state = urlToRouteState(url);
     const toPath = '/new-path?test=2#new-hash';
     navigateTo(state, toPath);
-    expect(pushStateSpy).not.toHaveBeenCalled();
-    expect(state.pathname).toBe('/path');
+    expect(pushStateSpy).toHaveBeenCalled();
+    expect(state.pathname).toBe('/new-path');
   });
 });

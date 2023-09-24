@@ -1,4 +1,4 @@
-import type { MutableRouteState, RouteState } from '../types';
+import type { MutableRouteState } from '../types';
 import { urlToMutableRouteState } from './url-to-mutable-route-state';
 
 /**
@@ -7,7 +7,7 @@ import { urlToMutableRouteState } from './url-to-mutable-route-state';
  * @param path The path to generate the new route state from
  * @returns A new mutable route state
  */
-export const generateNewUrlStateFromPath = (routeState: RouteState, path: string): MutableRouteState => {
-  const url = new URL(path, routeState.origin);
+export const generateNewUrlStateFromPath = (origin: string, path: string): MutableRouteState => {
+  const url = new URL(path, origin);
   return urlToMutableRouteState(url);
 };

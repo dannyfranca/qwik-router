@@ -21,6 +21,11 @@ describe(updateRouteState.name, () => {
       host: 'test.com',
       hostname: 'test.com',
       port: '',
-    });
+      username: '',
+      password: '',
+      searchParams: url.searchParams,
+      toJSON: expect.any(Function),
+      toString: expect.any(Function),
+    } as URL);
   });
 });

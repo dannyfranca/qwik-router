@@ -12,5 +12,10 @@ export const urlToRouteState = (url: URL): RouteState => ({
   hostname: url.hostname,
   port: url.port,
   protocol: url.protocol,
+  username: '',
+  password: '',
+  searchParams: url.searchParams,
+  toString: url.toString,
+  toJSON: url.toJSON,
   ...urlToMutableRouteState(url),
 });

@@ -96,7 +96,7 @@ export type RouteState = ManagedRouteState & MutableRouteState;
 /**
  * The function that is used to navigate to a new URL.
  */
-export type RouteNavigate = QRL<(path: string) => Promise<void>>;
+export type RouteNavigate = QRL<(location: string) => Promise<void>>;
 
 /**
  * A helper type that extends the common HTML attributes to allow any other props to be passed to the component.

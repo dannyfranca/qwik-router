@@ -3,7 +3,7 @@ import type { HTMLAttributes, QRL } from '@builder.io/qwik';
 /**
  * The route store immutable properties.
  */
-export interface ImmutableRouteState {
+export interface ManagedRouteState {
   /**
    * A string containing the protocol scheme of the URL, including the final ':'.
    */
@@ -28,6 +28,33 @@ export interface ImmutableRouteState {
    * @example `8080`.
    */
   readonly port: string;
+  /**
+   * This is always an empty string to keep full compatibility with native URL interface.
+   * For security reasons, the implementation of this interface removes the username/password section from the URL.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/username
+   */
+  readonly username: string;
+  /**
+   * This is always an empty string to keep full compatibility with native URL interface.
+   * For security reasons, the implementation of this interface removes the username/password section from the URL.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/password
+   */
+  readonly password: string;
+  /**
+   * A native URLSearchParams object containing all the URL's parameters.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+   */
+  readonly searchParams: URLSearchParams;
+  /**
+   * A method to correctly serialize the URL to string when the URL is used in a string context.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toString
+   */
+  readonly toString: () => string;
+  /**
+   * A method to correctly serialize the URL when JSON.stringify is called on the URL.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toJSON
+   */
+  readonly toJSON: () => string;
 }
 
 /**
@@ -64,12 +91,12 @@ export interface MutableRouteState {
 /**
  * The route state is a combination of the immutable and mutable parts.
  */
-export type RouteState = ImmutableRouteState & MutableRouteState;
+export type RouteState = ManagedRouteState & MutableRouteState;
 
 /**
  * The function that is used to navigate to a new URL.
  */
-export type RouteNavigate = QRL<(path: string) => Promise<void>>;
+export type RouteNavigate = QRL<(location: string) => Promise<void>>;
 
 /**
  * A helper type that extends the common HTML attributes to allow any other props to be passed to the component.

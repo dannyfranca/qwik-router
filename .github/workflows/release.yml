@@ -29,6 +29,8 @@ jobs:
 
       - name: Check
         uses: ./.github/actions/check
+        with:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
   release:
     runs-on: ubuntu-latest

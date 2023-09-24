@@ -161,7 +161,7 @@ export default component$(() => {
 
 The `initRouter` also returns a router reactive state, just like `useRouter`.
 
-Notive the route state is very close to the native [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL). Full compatibility soon.
+Notice the route state is based on the native [URL API](https://developer.mozilla.org/en-US/docs/Web/API/URL). It has **full interface compatibility** with the native URL, but it is **not an instance** of URL.
 
 ```typescript
 // root.tsx
@@ -348,7 +348,7 @@ export default component$((props: { url: string }) => {
 - [x] Router Component
 - [x] Link Component
 - [x] Programmatic Navigation
-- [ ] Route State Compatible with native URL
+- [x] Route State Compatible with native URL
 - [ ] Navigating State
 - [ ] Properties to Routes
 - [ ] Scroll Behavior

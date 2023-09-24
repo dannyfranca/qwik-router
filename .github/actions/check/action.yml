@@ -1,6 +1,9 @@
 name: Test
 
 description: Lint, Build and Test
+inputs:
+  CODACY_PROJECT_TOKEN:
+    required: true
 
 runs:
   using: composite
@@ -16,7 +19,7 @@ runs:
 
     - name: Test
       shell: bash
-      run: npx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
+      run: pnpx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
 
     # - name: E2E Tests
     #   shell: bash

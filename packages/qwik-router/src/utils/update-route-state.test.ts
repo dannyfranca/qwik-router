@@ -6,7 +6,7 @@ describe(updateRouteState.name, () => {
   it('Updates the routing state', () => {
     const url = new URL('https://test.com/test?test=1#hash');
     const state = urlToRouteState(url);
-    const newState = generateNewUrlStateFromPath(state, '/new-path?test=2#new-hash');
+    const newState = generateNewUrlStateFromPath(state.origin, '/new-path?test=2#new-hash');
     updateRouteState(state, newState);
     expect(state).toStrictEqual({
       href: 'https://test.com/new-path?test=2#new-hash',
@@ -21,6 +21,11 @@ describe(updateRouteState.name, () => {
       host: 'test.com',
       hostname: 'test.com',
       port: '',
-    });
+      username: '',
+      password: '',
+      searchParams: url.searchParams,
+      toJSON: expect.any(Function),
+      toString: expect.any(Function),
+    } as URL);
   });
 });

@@ -1,7 +1,13 @@
-import { getWindow } from './get-window';
+import { getHistory, getWindow } from './get-window';
 
 describe(getWindow.name, () => {
-  it('Does not return the window', async () => {
-    expect(getWindow()).toBeUndefined();
+  it('Does return the window', async () => {
+    expect(getWindow()).toBeDefined();
+  });
+});
+
+describe(getHistory.name, () => {
+  it('Does return the history', async () => {
+    expect(getHistory()).toBeDefined();
   });
 });

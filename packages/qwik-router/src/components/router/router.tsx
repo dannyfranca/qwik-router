@@ -1,4 +1,4 @@
-import { component$, useContextProvider, useStore } from '@builder.io/qwik';
+import { component$, useContextProvider, useStore, useTask$ } from '@builder.io/qwik';
 
 import { type RouteParams, type RouterProps } from '../../types';
 import { getMatchingConfig } from './get-matching-config';
@@ -17,7 +17,9 @@ export const Router = component$((props: RouterProps) => {
   const matchingResults = getMatchingConfig(routeState.pathname, props.routes);
 
   if (matchingResults) {
-    Object.assign(paramsStore, matchingResults.params);
+    useTask$(() => {
+      Object.assign(paramsStore, matchingResults.params);
+    });
     Comp = matchingResults.route.component;
     return <Comp />;
   }

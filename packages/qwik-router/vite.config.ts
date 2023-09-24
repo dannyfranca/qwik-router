@@ -53,11 +53,10 @@ export default defineConfig(() => {
         enabled: true,
         provider: 'istanbul',
         include: ['src/**/**'],
-        exclude: ['src/root.tsx', 'src/entry.dev.tsx', 'src/entry.ssr.tsx'],
+        exclude: ['src/root.tsx', 'src/entry.dev.tsx', 'src/entry.ssr.tsx', 'src/listen-to-route-changes.ts'],
         extension: ['.js', '.ts', '.tsx'],
-        coverage: {
-          reportsDirectory: '../../coverage/libs/qwik-router',
-        },
+        reporter: ['lcov', 'text-summary'],
+        reportsDirectory: '../../coverage/packages/qwik-router',
       },
     },
   };

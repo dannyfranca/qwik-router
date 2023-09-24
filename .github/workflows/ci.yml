@@ -1,6 +1,7 @@
 name: Pull Request Checks
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches:
@@ -26,3 +27,5 @@ jobs:
 
       - name: Check
         uses: ./.github/actions/check
+        with:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}

@@ -3,7 +3,7 @@ import type { HTMLAttributes, QRL } from '@builder.io/qwik';
 /**
  * The route store immutable properties.
  */
-export interface ImmutableRouteState {
+export interface ManagedRouteState {
   /**
    * A string containing the protocol scheme of the URL, including the final ':'.
    */
@@ -40,6 +40,21 @@ export interface ImmutableRouteState {
    * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/password
    */
   readonly password: string;
+  /**
+   * A native URLSearchParams object containing all the URL's parameters.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+   */
+  readonly searchParams: URLSearchParams;
+  /**
+   * A method to correctly serialize the URL to string when the URL is used in a string context.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toString
+   */
+  readonly toString: () => string;
+  /**
+   * A method to correctly serialize the URL when JSON.stringify is called on the URL.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toJSON
+   */
+  readonly toJSON: () => string;
 }
 
 /**
@@ -67,31 +82,16 @@ export interface MutableRouteState {
    */
   search: string;
   /**
-   * A native URLSearchParams object containing all the URL's parameters.
-   * @see https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
-   */
-  searchParams: URLSearchParams;
-  /**
    * The query of the URL serialized from the URL params.
    * @example `{ query: 'string' }`
    */
   query: Record<string, string>;
-  /**
-   * A method to correctly serialize the URL to string when the URL is used in a string context.
-   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toString
-   */
-  toString: () => string;
-  /**
-   * A method to correctly serialize the URL when JSON.stringify is called on the URL.
-   * @see https://developer.mozilla.org/en-US/docs/Web/API/URL/toJSON
-   */
-  toJSON: () => string;
 }
 
 /**
  * The route state is a combination of the immutable and mutable parts.
  */
-export type RouteState = ImmutableRouteState & MutableRouteState;
+export type RouteState = ManagedRouteState & MutableRouteState;
 
 /**
  * The function that is used to navigate to a new URL.

@@ -19,13 +19,7 @@ runs:
 
     - name: Test
       shell: bash
-      run: npx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
-
-    - name: Run codacy-coverage-reporter
-      uses: codacy/codacy-coverage-reporter-action@v1
-      with:
-        project-token: ${{ inputs.CODACY_PROJECT_TOKEN }}
-        coverage-reports: coverage/packages/qwik-router/lcov.info
+      run: pnpx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
 
     # - name: E2E Tests
     #   shell: bash

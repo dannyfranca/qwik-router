@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [1.1.0](https://github.com/dannyfranca/qwik-router/compare/qwik-router-1.0.2...qwik-router-1.1.0) (2024-02-04)
+
+
+### Performance Improvements
+
+* use useTask rather than useVisibleTask on initRouter ([0e46ec6](https://github.com/dannyfranca/qwik-router/commit/0e46ec6a8dfcdae8f4d525cbe29a62c7048fdbf6))
+
+
+
 ## [1.0.2](https://github.com/dannyfranca/qwik-router/compare/qwik-router-1.0.1...qwik-router-1.0.2) (2023-09-24)
 
 

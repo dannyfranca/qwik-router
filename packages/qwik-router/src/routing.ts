@@ -1,4 +1,4 @@
-import { $, type QRL, useContext, useContextProvider, useStore, useTask$, useVisibleTask$ } from '@builder.io/qwik';
+import { $, type QRL, useContext, useContextProvider, useStore, useTask$ } from '@builder.io/qwik';
 
 import type { RouteNavigate, RouteState } from './types';
 import { urlToRouteState } from './utils/url-to-route-state';

@@ -1,34 +1,41 @@
 import { defineConfig } from 'vite';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
-import devkit from '@nx/devkit';
 import { qwikVite } from '@builder.io/qwik/optimizer';
 import { qwikNxVite } from 'qwik-nx/plugins';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import * as path from 'path';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import pkg from "./package.json";
+
+const { peerDependencies } = pkg;
+const makeRegex = (dep: string) => new RegExp(`^${dep}(/.*)?$`);
+const excludeAll = (obj: object) => Object.keys(obj).map(makeRegex);
 
 export default defineConfig(() => {
   return {
     build: {
+      target: "es2020",
       lib: {
         name: 'qwik-router',
         entry: './src/index.ts',
         formats: ['es', 'cjs'],
-        fileName: 'index',
+        fileName: (format) => `index.qwik.${format === "es" ? "mjs" : "cjs"}`,
       },
       rollupOptions: {
-        external: ['@builder.io/qwik'],
+        external: [
+          /^node:.*/,
+          ...excludeAll(peerDependencies),
+        ],
       },
     },
+    cacheDir: '../../node_modules/.vite/qwik-router',
     plugins: [
       qwikNxVite(),
       qwikVite(),
+      nxViteTsPaths(),
       dts({
         entryRoot: 'src',
-        tsConfigFilePath: devkit.joinPathFragments(__dirname, 'tsconfig.lib.json'),
-        skipDiagnostics: true,
-      }),
-      viteTsConfigPaths({
-        root: '../../',
+        tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
       }),
       viteStaticCopy({
         targets: [

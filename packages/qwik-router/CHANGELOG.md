@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.3.1](https://github.com/dannyfranca/qwik-router/compare/qwik-router-1.3.0...qwik-router-1.3.1) (2024-02-04)
+
+
+### Bug Fixes
+
+* add build step before release ([0188d00](https://github.com/dannyfranca/qwik-router/commit/0188d00428bdf9d8f644c8dbec5d30a501335215))
+
+
+
 ## [1.0.2](https://github.com/dannyfranca/qwik-router/compare/qwik-router-1.0.1...qwik-router-1.0.2) (2023-09-24)
 
 

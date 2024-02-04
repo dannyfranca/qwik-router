@@ -25,7 +25,7 @@ export const initRouter = (strUrl: string) => {
     track(() => routeStore.search);
     (routeStore.searchParams as URLSearchParams) = new URLSearchParams(routeStore.search);
   });
-  useVisibleTask$(() => {
+  useTask$(() => {
     const newState = generateNewUrlStateFromPath(routeStore.origin, routeStore.href);
     getHistory()?.replaceState(newState, '', routeStore.href);
   });

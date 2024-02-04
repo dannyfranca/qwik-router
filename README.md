@@ -168,6 +168,7 @@ Notice the route state is based on the native [URL API](https://developer.mozill
 import { component$ } from "@builder.io/qwik";
 import { initRouter } from "qwik-router";
 
+// notice that initRouter can only be executed under an optimized component. A.K.A `component$`
 export default component$((props: { url: string }) => {
   const router = initRouter(props.url);
   router.hash; // #hash

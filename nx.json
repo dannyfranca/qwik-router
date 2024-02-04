@@ -1,35 +1,31 @@
 {
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "accessToken": "ZjdkZDdiZDUtZmM3MS00MGRkLWExMWQtZThlZmYzNGQ3YTZmfHJlYWQtd3JpdGU="
-      }
-    }
-  },
   "targetDefaults": {
     "build": {
       "dependsOn": [
         "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "production",
+        "^production"
       ]
     },
     "lint": {
       "inputs": [
         "default",
         "{workspaceRoot}/.eslintrc.json"
-      ]
+      ],
+      "cache": true
     },
     "test": {
       "inputs": [
         "default",
         "^default"
-      ]
+      ],
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
     }
   },
   "workspaceLayout": {
@@ -37,5 +33,15 @@
   },
   "affected": {
     "defaultBase": "main"
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "sharedGlobals": [],
+    "production": [
+      "default"
+    ]
   }
 }

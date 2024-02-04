@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [1.2.0](https://github.com/dannyfranca/qwik-router/compare/qwik-router-1.1.0...qwik-router-1.2.0) (2024-02-04)
+
+
+### Reverts
+
+* return version back to 1.0.2 ([b56d07d](https://github.com/dannyfranca/qwik-router/commit/b56d07d782b3b6e6d40133223440a6639aa15768))
+
+
+
 # [1.1.0](https://github.com/dannyfranca/qwik-router/compare/qwik-router-1.0.2...qwik-router-1.1.0) (2024-02-04)
 
 

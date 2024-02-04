@@ -5,12 +5,14 @@
   "license": "MIT",
   "private": false,
   "type": "module",
-  "main": "./index.cjs",
-  "module": "./index.js",
+  "main": "./index.qwik.mjs",
+  "qwik": "./index.qwik.mjs",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.cjs"
+      "import": "./index.qwik.mjs",
+      "require": "./index.qwik.cjs",
+      "types": "./index.d.ts"
     }
   },
   "author": {

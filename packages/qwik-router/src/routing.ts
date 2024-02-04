@@ -1,4 +1,4 @@
-import { $, type QRL, useContext, useContextProvider, useStore, useTask$, useVisibleTask$ } from '@builder.io/qwik';
+import { $, type QRL, useContext, useContextProvider, useStore, useTask$ } from '@builder.io/qwik';
 
 import type { RouteNavigate, RouteState } from './types';
 import { urlToRouteState } from './utils/url-to-route-state';
@@ -25,7 +25,7 @@ export const initRouter = (strUrl: string) => {
     track(() => routeStore.search);
     (routeStore.searchParams as URLSearchParams) = new URLSearchParams(routeStore.search);
   });
-  useVisibleTask$(() => {
+  useTask$(() => {
     const newState = generateNewUrlStateFromPath(routeStore.origin, routeStore.href);
     getHistory()?.replaceState(newState, '', routeStore.href);
   });

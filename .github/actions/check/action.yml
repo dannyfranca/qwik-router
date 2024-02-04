@@ -15,19 +15,19 @@ runs:
       shell: bash
       run: pnpx nx affected:lint --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
       env:
-        NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+        NX_CLOUD_ACCESS_TOKEN: ${{ inputs.NX_CLOUD_ACCESS_TOKEN }}
 
     - name: Build
       shell: bash
       run: pnpx nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
       env:
-        NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+        NX_CLOUD_ACCESS_TOKEN: ${{ inputs.NX_CLOUD_ACCESS_TOKEN }}
 
     - name: Test
       shell: bash
       run: pnpx nx affected --target=test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD  }}
       env:
-        NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+        NX_CLOUD_ACCESS_TOKEN: ${{ inputs.NX_CLOUD_ACCESS_TOKEN }}
 
     # - name: E2E Tests
     #   shell: bash

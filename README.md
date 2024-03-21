@@ -30,7 +30,7 @@
 - [Component Routing](#component-routing)
   - [Matching Patterns](#matching-patterns)
   - [Multiple Routers and URL Parameters](#multiple-routers-and-url-parameters)
-- [ROADMAP:](#roadmap)
+- [Roadmap](#roadmap)
 - [⭐ Give us a Star ⭐](https://github.com/dannyfranca/qwik-router)
 - [Contributing](#contributing)
 - [Code Of Conduct](#code-of-conduct)
